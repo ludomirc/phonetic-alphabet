@@ -40,10 +40,9 @@
                 <version>6.9.9</version>
                 <scope>test</scope>
             </dependency>
-            
+
         </dependencies>
     </dependencyManagement>
-
 
     <build>
         <pluginManagement>
