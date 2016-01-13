@@ -11,13 +11,14 @@ public class TranscriptionMenuBar {
 
     private JMenuBar jMenuBar;
 
-    private JMenuItem jMenuItemOpenFile;
     private JMenu jMenuFile;
+    private JMenuItem jMenuItemOpenFile;
     private JMenuItem jMenuItemExit;
+    private JMenuItem jMenuItemSave;
+
     private JMenuItem jMenuItemAbout;
     private JMenu jMenuHelp;
-    private JSeparator jSeparator0;
-    private JMenuItem jMenuItemSave;
+
 
     public JMenuBar getMenuBar() {
         if (jMenuBar == null) {
@@ -34,13 +35,6 @@ public class TranscriptionMenuBar {
             jMenuItemSave.setText("Save");
         }
         return jMenuItemSave;
-    }
-
-    private JSeparator getJSeparator0() {
-        if (jSeparator0 == null) {
-            jSeparator0 = new JSeparator();
-        }
-        return jSeparator0;
     }
 
     private JMenu getJMenuHelp() {
@@ -83,7 +77,6 @@ public class TranscriptionMenuBar {
             jMenuFile = new JMenu();
             jMenuFile.setText("File");
             jMenuFile.add(getJMenuItemOpenFile());
-            jMenuFile.add(getJSeparator0());
             jMenuFile.add(getJMenuItemSave());
             jMenuFile.add(getJMenuItemExit());
         }
