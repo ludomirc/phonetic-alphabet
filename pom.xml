@@ -35,6 +35,12 @@
             </dependency>
 
             <dependency>
+                <groupId>org.dyno.visual.swng</groupId>
+                <artifactId>vs4e</artifactId>
+                <version>0.9.12</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.testng</groupId>
                 <artifactId>testng</artifactId>
                 <version>6.9.9</version>

@@ -12,6 +12,14 @@
 
     <artifactId>swing-ui</artifactId>
 
+
+    <dependencies>
+        <dependency>
+            <groupId>org.dyno.visual.swng</groupId>
+            <artifactId>vs4e</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
