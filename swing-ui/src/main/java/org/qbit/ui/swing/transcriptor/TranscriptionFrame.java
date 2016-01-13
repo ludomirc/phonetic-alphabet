@@ -8,21 +8,21 @@ import org.qbit.ui.swing.transcriptor.panels.TranscriptPane;
 import javax.swing.*;
 
 //VS4E -- DO NOT REMOVE THIS LINE!
-public class TranscriptorFrame extends JFrame {
+public class TranscriptionFrame extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private TranscriptPane transcriptPane0;
-    private JMenuItem jMenuItem0;
-    private JMenu jMenu0;
+    private JMenuItem jMenuItemOpenFile;
+    private JMenu jMenuFile;
     private JMenuBar jMenuBar0;
-    private JMenuItem jMenuItem2;
-    private JMenuItem jMenuItem3;
-    private JMenu jMenu2;
+    private JMenuItem jMenuItemExit;
+    private JMenuItem jMenuItemAbout;
+    private JMenu jMenuHelp;
     private JSeparator jSeparator0;
-    private JMenuItem jMenuItem1;
+    private JMenuItem jMenuItemSave;
     private static final String PREFERRED_LOOK_AND_FEEL = "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel";
 
-    public TranscriptorFrame() {
+    public TranscriptionFrame() {
         initComponents();
     }
 
@@ -33,12 +33,12 @@ public class TranscriptorFrame extends JFrame {
         setSize(802, 452);
     }
 
-    private JMenuItem getJMenuItem1() {
-        if (jMenuItem1 == null) {
-            jMenuItem1 = new JMenuItem();
-            jMenuItem1.setText("Save");
+    private JMenuItem getJMenuItemSave() {
+        if (jMenuItemSave == null) {
+            jMenuItemSave = new JMenuItem();
+            jMenuItemSave.setText("Save");
         }
-        return jMenuItem1;
+        return jMenuItemSave;
     }
 
     private JSeparator getJSeparator0() {
@@ -48,58 +48,58 @@ public class TranscriptorFrame extends JFrame {
         return jSeparator0;
     }
 
-    private JMenu getJMenu2() {
-        if (jMenu2 == null) {
-            jMenu2 = new JMenu();
-            jMenu2.setText("Help");
-            jMenu2.add(getJMenuItem3());
+    private JMenu getJMenuHelp() {
+        if (jMenuHelp == null) {
+            jMenuHelp = new JMenu();
+            jMenuHelp.setText("Help");
+            jMenuHelp.add(getJMenuItem3());
         }
-        return jMenu2;
+        return jMenuHelp;
     }
 
     private JMenuItem getJMenuItem3() {
-        if (jMenuItem3 == null) {
-            jMenuItem3 = new JMenuItem();
-            jMenuItem3.setText("About");
+        if (jMenuItemAbout == null) {
+            jMenuItemAbout = new JMenuItem();
+            jMenuItemAbout.setText("About");
         }
-        return jMenuItem3;
+        return jMenuItemAbout;
     }
 
-    private JMenuItem getJMenuItem2() {
-        if (jMenuItem2 == null) {
-            jMenuItem2 = new JMenuItem();
-            jMenuItem2.setText("Exit");
+    private JMenuItem getJMenuItemExit() {
+        if (jMenuItemExit == null) {
+            jMenuItemExit = new JMenuItem();
+            jMenuItemExit.setText("Exit");
         }
-        return jMenuItem2;
+        return jMenuItemExit;
     }
 
     private JMenuBar getJMenuBar0() {
         if (jMenuBar0 == null) {
             jMenuBar0 = new JMenuBar();
-            jMenuBar0.add(getJMenu0());
-            jMenuBar0.add(getJMenu2());
+            jMenuBar0.add(getJMenuFile());
+            jMenuBar0.add(getJMenuHelp());
         }
         return jMenuBar0;
     }
 
-    private JMenu getJMenu0() {
-        if (jMenu0 == null) {
-            jMenu0 = new JMenu();
-            jMenu0.setText("File");
-            jMenu0.add(getJMenuItem0());
-            jMenu0.add(getJSeparator0());
-            jMenu0.add(getJMenuItem1());
-            jMenu0.add(getJMenuItem2());
+    private JMenu getJMenuFile() {
+        if (jMenuFile == null) {
+            jMenuFile = new JMenu();
+            jMenuFile.setText("File");
+            jMenuFile.add(getJMenuItemOpenFile());
+            jMenuFile.add(getJSeparator0());
+            jMenuFile.add(getJMenuItemSave());
+            jMenuFile.add(getJMenuItemExit());
         }
-        return jMenu0;
+        return jMenuFile;
     }
 
-    private JMenuItem getJMenuItem0() {
-        if (jMenuItem0 == null) {
-            jMenuItem0 = new JMenuItem();
-            jMenuItem0.setText("Open");
+    private JMenuItem getJMenuItemOpenFile() {
+        if (jMenuItemOpenFile == null) {
+            jMenuItemOpenFile = new JMenuItem();
+            jMenuItemOpenFile.setText("Open");
         }
-        return jMenuItem0;
+        return jMenuItemOpenFile;
     }
 
     private TranscriptPane getTranscriptPane0() {
@@ -130,9 +130,9 @@ public class TranscriptorFrame extends JFrame {
         installLnF();
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                TranscriptorFrame frame = new TranscriptorFrame();
-                frame.setDefaultCloseOperation(TranscriptorFrame.EXIT_ON_CLOSE);
-                frame.setTitle("TranscriptorFrame");
+                TranscriptionFrame frame = new TranscriptionFrame();
+                frame.setDefaultCloseOperation(TranscriptionFrame.EXIT_ON_CLOSE);
+                frame.setTitle("TranscriptionFrame");
                 frame.getContentPane().setPreferredSize(frame.getSize());
                 frame.pack();
                 frame.setLocationRelativeTo(null);
