@@ -6,7 +6,7 @@
         </Console>
     </appenders>
     <loggers>
-        <logger name='com.foo.Bar' level='trace' additivity='false'>
+        <logger name='qbit.org.qbit.phonetic.alphabet.api' level='trace' additivity='false'>
             <appender-ref ref='Console'/>
         </logger>
         <root level='info'>
