@@ -1,4 +1,6 @@
-package org.qbit.ui.swing.transcriptor.panels;
+package org.qbit.ui.swing.transcriptor.panel;
+
+import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -7,6 +9,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Benek on 2016-01-13.
  */
+@Component
 public class TranscriptionMenuBar {
 
     private JMenuBar jMenuBar;

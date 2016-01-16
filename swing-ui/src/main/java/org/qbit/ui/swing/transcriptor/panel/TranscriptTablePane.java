@@ -1,13 +1,15 @@
-package org.qbit.ui.swing.transcriptor.panels;
+package org.qbit.ui.swing.transcriptor.panel;
 
 import org.dyno.visual.swing.layouts.Bilateral;
 import org.dyno.visual.swing.layouts.Constraints;
 import org.dyno.visual.swing.layouts.GroupLayout;
 import org.dyno.visual.swing.layouts.Leading;
+import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+@Component
 //VS4E -- DO NOT REMOVE THIS LINE!
 public class TranscriptTablePane extends JPanel {
 

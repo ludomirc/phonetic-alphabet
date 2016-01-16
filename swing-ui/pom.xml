@@ -14,10 +14,36 @@
 
 
     <dependencies>
+        <!-- vusual swing deoebdency-->
         <dependency>
             <groupId>org.dyno.visual.swng</groupId>
             <artifactId>vs4e</artifactId>
         </dependency>
+
+        <!-- spring framevork dependency -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>4.2.4.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.2.4.RELEASE</version>
+        </dependency>
+
+        <!-- loger dependency -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
