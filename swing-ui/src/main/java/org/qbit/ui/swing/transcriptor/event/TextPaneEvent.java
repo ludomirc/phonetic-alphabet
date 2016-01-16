@@ -22,7 +22,28 @@ public class TextPaneEvent implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        logger.debug("clear event");
+
+        String command = e.getActionCommand();
+        GuiActionType actionType = GuiActionType.getActionType(e.getActionCommand());
+
+        switch (actionType) {
+            case Clear:
+                clear();
+                break;
+            case Transcript:
+                transcript();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void transcript() {
+        logger.debug("transcript");
+    }
+
+    private void clear() {
+        logger.debug("clear");
         textPane.clear();
     }
 
