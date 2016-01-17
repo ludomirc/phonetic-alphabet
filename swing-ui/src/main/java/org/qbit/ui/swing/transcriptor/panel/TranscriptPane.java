@@ -27,7 +27,7 @@ public class TranscriptPane extends JPanel {
     @PostConstruct
     private void initComponents() {
         setLayout(new GroupLayout());
-        add(transcriptTablePane, new Constraints(new Leading(4, 401, 10, 10), new Leading(5, 399, 10, 10)));
+        add(transcriptTablePane, new Constraints(new Leading(4, 401, 10, 10), new Bilateral(5, 4, 10, 399)));
         add(transcriptTextPane, new Constraints(new Leading(414, 364, 10, 10), new Leading(5, 288, 12, 12)));
         add(getButtonPane(), new Constraints(new Bilateral(417, 12, 308), new Leading(311, 84, 10, 10)));
         setSize(788, 411);
