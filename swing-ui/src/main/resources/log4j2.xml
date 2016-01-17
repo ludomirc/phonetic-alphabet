@@ -9,7 +9,7 @@
         <logger name='org.qbit.ui.swing.transcriptor' level='trace' additivity='false'>
             <appender-ref ref='Console'/>
         </logger>
-        <root level='TRACE'>
+        <root level='DEBUG'>
             <appender-ref ref='Console'/>
         </root>
         <logger name="org.springframework.beans">

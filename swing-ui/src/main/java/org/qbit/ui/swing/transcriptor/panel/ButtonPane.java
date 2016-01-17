@@ -6,7 +6,7 @@ import org.dyno.visual.swing.layouts.Constraints;
 import org.dyno.visual.swing.layouts.GroupLayout;
 import org.dyno.visual.swing.layouts.Leading;
 import org.qbit.ui.swing.transcriptor.event.GuiActionType;
-import org.qbit.ui.swing.transcriptor.event.TextPaneEvent;
+import org.qbit.ui.swing.transcriptor.event.TextPaneListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +26,7 @@ public class ButtonPane extends JPanel {
     @Autowired
     TranscriptTextPane transcriptTextPane;
     @Autowired
-    TextPaneEvent textPaneEvent;
+    TextPaneListener textPaneEvent;
 
     @PostConstruct
     private void initComponents() {

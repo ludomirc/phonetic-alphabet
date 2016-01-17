@@ -6,6 +6,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.swing.*;
 
+/**
+ * Launcher class is required for run spring container
+ * Created by Benek on 2016-01-15.
+ */
 public class Launcher {
 
     private static final String PREFERRED_LOOK_AND_FEEL = "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel";

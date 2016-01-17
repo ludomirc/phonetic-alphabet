@@ -14,33 +14,37 @@ import javax.swing.*;
 public class TranscriptTextPane extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    private JTextPane jTextPane0;
-    private JScrollPane jScrollPane0;
+    private JTextPane jTextPane;
+    private JScrollPane jScrollPane;
 
     @PostConstruct
     private void initComponents() {
         setLayout(new GroupLayout());
-        add(getJScrollPane0(), new Constraints(new Leading(3, 357, 10, 10), new Bilateral(4, 2, 10, 234)));
+        add(getJScrollPane(), new Constraints(new Leading(3, 357, 10, 10), new Bilateral(4, 2, 10, 234)));
         setSize(362, 240);
     }
 
-    private JScrollPane getJScrollPane0() {
-        if (jScrollPane0 == null) {
-            jScrollPane0 = new JScrollPane();
-            jScrollPane0.setViewportView(getJTextPane0());
+    private JScrollPane getJScrollPane() {
+        if (jScrollPane == null) {
+            jScrollPane = new JScrollPane();
+            jScrollPane.setViewportView(getJTextPane());
         }
-        return jScrollPane0;
+        return jScrollPane;
     }
 
-    private JTextPane getJTextPane0() {
-        if (jTextPane0 == null) {
-            jTextPane0 = new JTextPane();
-            jTextPane0.setText("ala ma kota, milicjant ma pałę");
+    private JTextPane getJTextPane() {
+        if (jTextPane == null) {
+            jTextPane = new JTextPane();
+            jTextPane.setText("input text to transcript");
         }
-        return jTextPane0;
+        return jTextPane;
+    }
+
+    public String getText() {
+        return jTextPane.getText();
     }
 
     public void clear() {
-        getJTextPane0().setText("");
+        getJTextPane().setText("");
     }
 }
