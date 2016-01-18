@@ -16,8 +16,6 @@ public class PhoneticAlphabetPolishImp extends PhoneticAlphabet {
 
     public PhoneticAlphabetPolishImp() {
         alphabetPairArr = loadAlphabet();
-
-
     }
 
     @Override
@@ -62,6 +60,7 @@ public class PhoneticAlphabetPolishImp extends PhoneticAlphabet {
     protected Pair isNationalSymbol(char character) {
         // Ą  Ć  Ę  Ł Ń  Ó Ś  Ź Ż
 
+        character = Character.toUpperCase(character);
         Pair pair = null;
         switch (character) {
             //Ą -> A
