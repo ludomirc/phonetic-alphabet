@@ -113,43 +113,48 @@ public class PhoneticAlphabetPolishTest {
     @DataProvider(name = "characterDataProvider")
     public Object[][] getCharData() {
         return new Object[][]{
-                {'A', "Alpha", "alfa"},
-                {'B', "Bravo", "brawo"},
-                {'C', "Charlie", "czarli"},
-                {'D', "Delta", "delta"},
-                {'E', "Echo", "eko"},
-                {'F', "Foxtrot", "fokstrot"},
-                {'G', "Golf", "golf"},
-                {'H', "Hotel", "hotel"},
-                {'I', "India", "india"},
-                {'J', "Juliett", "dżuliet"},
-                {'K', "Kilo", "kilo"},
-                {'L', "Lima", "lima"},
-                {'M', "Mike", "majk"},
-                {'N', "November", "nowember"},
-                {'O', "Oscar", "oskar"},
-                {'P', "Papa", "papa"},
-                {'Q', "Quebec", "kebek"},
-                {'R', "Romeo", "romijo"},
-                {'S', "Sierra", "sjera"},
-                {'T', "Tango", "tango"},
-                {'U', "Uniform", "juniform"},
-                {'V', "Victor", "wiktor"},
-                {'W', "Whiskey", "łyski"},
-                {'X', "X-Ray", "eks-rej"},
-                {'Y', "Yankee", "janki"},
-                {'Z', "Zulu", "zulu"},
-                {'\0', null, null}};
+                {'A', "Alpha", "alfa", null},
+                {'B', "Bravo", "brawo", null},
+                {'C', "Charlie", "czarli", null},
+                {'D', "Delta", "delta", null},
+                {'E', "Echo", "eko", null},
+                {'F', "Foxtrot", "fokstrot", null},
+                {'G', "Golf", "golf", null},
+                {'H', "Hotel", "hotel", null},
+                {'I', "India", "india", null},
+                {'J', "Juliett", "dżuliet", null},
+                {'K', "Kilo", "kilo", null},
+                {'L', "Lima", "lima", null},
+                {'M', "Mike", "majk", null},
+                {'N', "November", "nowember", null},
+                {'O', "Oscar", "oskar", null},
+                {'P', "Papa", "papa", null},
+                {'Q', "Quebec", "kebek", null},
+                {'R', "Romeo", "romijo", null},
+                {'S', "Sierra", "sjera", null},
+                {'T', "Tango", "tango", null},
+                {'U', "Uniform", "juniform", null},
+                {'V', "Victor", "wiktor", null},
+                {'W', "Whiskey", "łyski", null},
+                {'X', "X-Ray", "eks-rej", null},
+                {'Y', "Yankee", "janki", null},
+                {'Z', "Zulu", "zulu", null},
+                {'\u0141', "Lima", "lima", 'L'},
+                {'\0', null, null, null}};
     }
 
 
     @Test(dataProvider = "characterDataProvider")
-    public void transcriptCharacterTest(Character inputChar, String exEnglish, String exPolish) {
+    public void transcriptCharacterTest(Character inputChar, String exEnglish, String exPolish, Character nationalCharReplacer) {
 
         Pair pair = alphabet.transcriptChar(inputChar);
         Character exChar = inputChar;
 
-        Assert.assertEquals(pair.getCharacter(), exChar, "must be equal");
+        if (nationalCharReplacer == null) {
+            Assert.assertEquals(pair.getCharacter(), exChar, "must be equal");
+        } else {
+            Assert.assertEquals(pair.getCharacter(), nationalCharReplacer, "must be equal");
+        }
         Assert.assertEquals(pair.getOrigin(), exEnglish, "must be equal");
         Assert.assertEquals(pair.getTranscript(), exPolish, "must be equal");
     }
@@ -170,9 +175,9 @@ public class PhoneticAlphabetPolishTest {
             currentArr[row][1] = elPair.getOrigin();
             currentArr[row][2] = elPair.getTranscript();
 
-            logger.debug("input char: "+ elPair.getCharacter() + " expected char: " + expectedArr[row][0]);
+            logger.debug("input char: " + elPair.getCharacter() + " expected char: " + expectedArr[row][0]);
 
-            Assert.assertEquals(elPair.getCharacter(),expectedArr[row][0], "must be equal");
+            Assert.assertEquals(elPair.getCharacter(), expectedArr[row][0], "must be equal");
             Assert.assertEquals(elPair.getOrigin(), expectedArr[row][1], "must be equal");
             Assert.assertEquals(elPair.getTranscript(), expectedArr[row][2], "must be equal");
         }

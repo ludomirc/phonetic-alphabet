@@ -15,21 +15,26 @@ public abstract class PhoneticAlphabet implements Alphabet {
     private Logger logger = LogManager.getLogger(PhoneticAlphabet.class.getName());
 
     protected static final int CHAR_OFFSET = 65;
-    protected static final int CHAR_NUMBER = AlphabetEnum.CHARACTER_NUMBER ;
+    protected static final int CHAR_NUMBER = AlphabetEnum.CHARACTER_NUMBER;
     protected Pair[] alphabetPairArr;
 
     abstract protected Pair[] loadAlphabet();
 
     @Override
     public Pair transcriptChar(char character) {
-        Pair pair;
+        Pair pair = null;
         int localCharValue = isInAlphabet(character);
 
         logger.debug("local character value: " + localCharValue);
 
-        if (localCharValue >= 0) {
-            pair = alphabetPairArr[localCharValue];
-            pair.setCharacter(character);
+        if (localCharValue >= 0 && localCharValue < alphabetPairArr.length) {
+            try {
+                pair = getLocalAlphabetPair(character, localCharValue);
+            } catch (IndexOutOfBoundsException ex) {
+                logger.error("character overflow character border: " + character + ", character number:" + localCharValue);
+            }
+        } else if ((pair = isNationalSymbol(character)) != null) {
+            logger.debug("found national character. replace char:\"" + character + "\" to\"" + pair.getCharacter() + "\"");
         } else {
             pair = new Pair();
             pair.setCharacter(character);
@@ -37,6 +42,21 @@ public abstract class PhoneticAlphabet implements Alphabet {
         }
         return pair;
     }
+
+    protected Pair getLocalAlphabetPair(char character, int localCharValue) {
+        Pair pair;
+        pair = alphabetPairArr[localCharValue];
+        pair.setCharacter(character);
+        return pair;
+    }
+
+    /**
+     * Method to manual replace national symbol to letter form alphabet
+     *
+     * @param character
+     * @return
+     */
+    protected abstract Pair isNationalSymbol(char character);
 
     /**
      * method transcribed word to to phonetic form
@@ -68,7 +88,7 @@ public abstract class PhoneticAlphabet implements Alphabet {
      * @param character
      * @return position in @alphabetPairArr or -1
      */
-    private int isInAlphabet(char character) {
+    protected int isInAlphabet(char character) {
         int numValue = Character.valueOf(Character.toUpperCase(character));
         numValue = numValue - CHAR_OFFSET;
         if (numValue >= 0 || numValue <= CHAR_NUMBER) {

@@ -1,5 +1,7 @@
 package qbit.org.qbit.phonetic.alphabet.api.imp;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import qbit.org.qbit.phonetic.alphabet.api.Pair;
 import qbit.org.qbit.phonetic.alphabet.api.PhoneticAlphabet;
 
@@ -10,8 +12,12 @@ import static qbit.org.qbit.phonetic.alphabet.api.AlphabetEnum.*;
  */
 public class PhoneticAlphabetPolishImp extends PhoneticAlphabet {
 
+    private Logger logger = LogManager.getLogger(PhoneticAlphabetPolishImp.class.getName());
+
     public PhoneticAlphabetPolishImp() {
         alphabetPairArr = loadAlphabet();
+
+
     }
 
     @Override
@@ -49,5 +55,60 @@ public class PhoneticAlphabetPolishImp extends PhoneticAlphabet {
 
         return pairArr;
 
+    }
+
+
+    @Override
+    protected Pair isNationalSymbol(char character) {
+        // Ą  Ć  Ę  Ł Ń  Ó Ś  Ź Ż
+
+        Pair pair = null;
+        switch (character) {
+            //Ą -> A
+            case '\u0104':
+                pair = replaceNationalCharacter('A');
+                return pair;
+            //Ć -> C
+            case '\u0106':
+                pair = replaceNationalCharacter('C');
+                return pair;
+            //Ę -> E
+            case '\u0118':
+                pair = replaceNationalCharacter('E');
+                return pair;
+            //Ł -> L
+            case '\u0141':
+                pair = replaceNationalCharacter('L');
+                return pair;
+            //Ń -> N
+            case '\u0143':
+                pair = replaceNationalCharacter('N');
+                return pair;
+            //Ó -> O
+            case '\u00D3':
+                pair = replaceNationalCharacter('O');
+                return pair;
+            //Ś -> S
+            case '\u015A':
+                pair = replaceNationalCharacter('S');
+                return pair;
+            //Ź -> Z
+            case '\u0179':
+                pair = replaceNationalCharacter('Z');
+                return pair;
+            //Ż -> Z
+            case '\u017B':
+                pair = replaceNationalCharacter('Z');
+                return pair;
+        }
+
+        return pair;
+    }
+
+    private Pair replaceNationalCharacter(char character) {
+        Pair pair;
+        int localCharValue = isInAlphabet(character);
+        pair = getLocalAlphabetPair(character, localCharValue);
+        return pair;
     }
 }
