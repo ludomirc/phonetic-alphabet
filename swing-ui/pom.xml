@@ -67,7 +67,7 @@
             </plugin>
 
             <!-- seting for bild jar with dependence -->
-            <plugin>
+            <!--<plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
                     <archive>
@@ -79,8 +79,29 @@
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                 </configuration>
+            </plugin>-->
+            <!--  maven shade plugin to build runnable jar with dependencies -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <finalName>uber-${artifactId}-${version}</finalName>
+                    <transformers>
+                        <transformer
+                                implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <mainClass>org.qbit.ui.swing.transcriptor.RunApp</mainClass>
+                        </transformer>
+                    </transformers>
+                </configuration>
             </plugin>
-
         </plugins>
     </build>
 </project>
