@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+.gitignore
+.idea/
+Phonetic alphabet.iml
+api/api.iml
+api/target/
+swing-ui/src/test/
+swing-ui/swing-ui.iml
+swing-ui/target/
